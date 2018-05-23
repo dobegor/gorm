@@ -67,6 +67,12 @@ func newDialect(name string, db SQLCommon) Dialect {
 	return commontDialect
 }
 
+// GetDialect gets the dialect for the specified dialect name
+func GetDialect(name string) (dialect Dialect, ok bool) {
+	dialect, ok = dialectsMap[name]
+	return
+}
+
 // RegisterDialect register new dialect
 func RegisterDialect(name string, dialect Dialect) {
 	dialectsMap[name] = dialect
